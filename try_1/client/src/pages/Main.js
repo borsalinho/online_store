@@ -1,10 +1,12 @@
 import React from 'react';
+import {Container} from 'react-bootstrap'
+import ProductList from '../components/ProductList';
 
 const Main = () => {
     return (
-        <div>
-            main
-        </div>
+        <Container>
+            <ProductList/>
+        </Container>
     );
 };
 
