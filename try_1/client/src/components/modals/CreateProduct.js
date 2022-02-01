@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import {Form, Button} from "react-bootstrap";
 import Modal from "react-bootstrap/Modal"
+import { Context } from "../../index";
 
 const CreateProduct = ({show, onHide}) => {
+    const {product} = useContext(Context)
+
     return (
         <Modal
         show={show}
@@ -20,10 +23,25 @@ const CreateProduct = ({show, onHide}) => {
               <Form.Control
               placeholder={"Введите название кросовки"}
               />
+              <Form.Control
+              className="mt-3"
+              placeholder={"Введите стоимость"}
+              type="number"
+              />
+              <Form.Control
+              className="mt-3"
+              placeholder={"Введите размер"}
+              />
+              <Form.Control
+              className="mt-3"
+              type="file"
+              />
           </Form>
+          <hr/>
+          
         </Modal.Body>
         <Modal.Footer>
-            <Button variant="outline-success" onClick={onHide}>Добавлять</Button>
+            <Button variant="outline-success" onClick={onHide}>Добавить</Button>
             <Button variant="outline-danger" onClick={onHide}>Закрыть</Button>
         </Modal.Footer>
       </Modal>
