@@ -1,4 +1,4 @@
-import Main from './pages/Main';
+import Main from './pages/main';
 import {MAIN_ROUTE} from './utils/consts'
 
 export const publicRoutes = [
