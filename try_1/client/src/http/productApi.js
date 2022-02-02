@@ -1,6 +1,6 @@
 import { $host } from "./index";
 
-export const createProducts = async (product) => {
+export const createProduct= async (product) => {
     const {data} = await $host.post('api/product', product)
     return data
 }
