@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {Container,Button} from 'react-bootstrap'
 import ProductList from '../components/ProductList';
-import CreateProduct from '../components/modals/CreateProduct'
+import CreateProduct from '../components/modals/CreateProduct';
+import { Context } from '../index';
+import { observer } from 'mobx-react-lite'
+import { fetchProducts } from '../http/productApi';
+import {setProducts} from '../store/ProductStore'
 
-const Main = () => {
+const Main = observer(() => {
+    const {product} = useContext(Context)
     const [productVisible, setProductVisible] = useState(false)
+
+    useEffect(()=>{
+        fetchProducts().then(data =>product.setProducts(data))
+    })
     return (
         <Container>
             <Button variant={"outline-dark"} className='my-2'
@@ -14,6 +23,6 @@ const Main = () => {
             <CreateProduct show={productVisible} onHide={() => setProductVisible(false)}/>
         </Container>
     );
-};
+});
 
 export default Main;

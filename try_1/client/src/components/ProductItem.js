@@ -8,7 +8,7 @@ const ProductItem = ({product}) =>{
                 <Image
                 width={150}
                 height={150}
-                src={product.img}
+                src={process.env.REACT_APP_API_URL + product.img}
                 />
                 <div>
                     <div>{product.name}</div>
